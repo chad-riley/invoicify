@@ -13,16 +13,29 @@ import javax.persistence.OneToOne;
 public class InvoiceLineItem {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
 	@OneToOne
 	private BillingRecord billingRecord;
-	
+
 	private Date createdOn;
-	
+
+	public Invoice getInvoice() {
+		return invoice;
+	}
+
+	public void setInvoice(Invoice invoice) {
+		this.invoice = invoice;
+	}
+
 	@ManyToOne
 	private User createdBy;
+
+	@ManyToOne
+	private Invoice invoice;
+
+	// getters and setters
 
 	public Long getId() {
 		return id;

@@ -6,9 +6,38 @@
 </head>
 <body>
 
-<div>Hello, {{ user.username }}</div>
+	<div>Hello, {{ user.username }}</div>
 
-<h1>Invoices</h1>
+	<h1>Invoices</h1>
+	<thread>
+	</table>
 
+	<form>
+		<h1>Select A Client</h1>
+		<a href="/invoices/new">New Invoice</a>
+	</form>
+	{{#showTable}}
+	<table>
+		<thread>
+		<tr>
+			<th>Number</th>
+			<th>Client</th>
+			<th>Created on</th>
+			<th>Created by</th>
+		</tr>
+
+		</thread>
+		<tbody>
+			{{ #invoices }}
+			<tr>
+				<td>{{ invoiceNumber }}</td>
+				<td>{{ company.name }}</td>
+				<td>{{ createdOn }}</td>
+				<td>{{ createdBy.username }}</td>
+			</tr>
+			{{ /invoices }}
+		</tbody>
+	</table>
+	{{/showTable}}
 </body>
 </html>

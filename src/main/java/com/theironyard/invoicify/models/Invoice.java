@@ -1,29 +1,45 @@
 package com.theironyard.invoicify.models;
 
 import java.sql.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Invoice {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+
 	@ManyToOne
 	private Company company;
-	
+
 	private Date createdOn;
-	
+
 	@ManyToOne
 	private User createdBy;
-	
+
 	private String invoiceNumber;
+
+	public List<InvoiceLineItem> getLineItems() { // THIS!
+		return LineItems;
+	}
+
+	public void setLineItems(List<InvoiceLineItem> lineItems) {
+		LineItems = lineItems;
+	}
+
+	@OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL)
+	private List<InvoiceLineItem> LineItems;
+
+	// getters and setters
 
 	public Long getId() {
 		return id;
@@ -64,5 +80,5 @@ public class Invoice {
 	public void setInvoiceNumber(String invoiceNumber) {
 		this.invoiceNumber = invoiceNumber;
 	}
-	
+
 }

@@ -11,21 +11,24 @@ import javax.persistence.ManyToOne;
 public class UserRole {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String name;
-	
+
 	@ManyToOne
 	private User user;
-	
-	public UserRole() {}
-	
+
+	public UserRole() {
+	}
+
 	public UserRole(String name, User user) {
 		this.name = name;
 		this.user = user;
 	}
+
+	// getters and setters
 
 	public Long getId() {
 		return id;
@@ -50,14 +53,5 @@ public class UserRole {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
+
 }
-
-
-
-
-
-
-
-
-

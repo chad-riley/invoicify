@@ -13,20 +13,23 @@ import javax.persistence.OneToMany;
 public class Company {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	@Column(length=255)
+	@Column(length = 255)
 	private String name;
-	
-	@OneToMany(mappedBy="company")
+
+	@OneToMany(mappedBy = "company")
 	private List<Invoice> invoices;
-	
-	public Company() {}
-	
+
+	public Company() {
+	}
+
 	public Company(String name) {
 		this.name = name;
 	}
+
+	// getters and setters
 
 	public Long getId() {
 		return id;
@@ -51,5 +54,5 @@ public class Company {
 	public void setInvoices(List<Invoice> invoices) {
 		this.invoices = invoices;
 	}
-	
+
 }
