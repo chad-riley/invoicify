@@ -16,17 +16,21 @@ public class Company {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	@Column(length = 255)
+	@Column(length = 255, unique=true)
 	private String name;
 
 	@OneToMany(mappedBy = "company")
 	private List<Invoice> invoices;
+	
+	@Column
+	private int count;
 
 	public Company() {
 	}
 
 	public Company(String name) {
 		this.name = name;
+
 	}
 
 	// getters and setters
@@ -37,6 +41,15 @@ public class Company {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+	
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		count = invoices.size();
+
 	}
 
 	public String getName() {

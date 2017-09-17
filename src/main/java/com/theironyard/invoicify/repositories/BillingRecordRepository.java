@@ -8,15 +8,10 @@ import com.theironyard.invoicify.models.BillingRecord;
 
 public interface BillingRecordRepository extends JpaRepository<BillingRecord, Long> {
 
-	List<BillingRecord> findByLineItemIsNullAndClientId(long clientId);
+	List<BillingRecord> findByClientIdAndLineItemIsNull(long clientId);
 
 	List<BillingRecord> findByIdIn(long[] recordIds);
 	
-	
 
-
-
-
-	
 
 }

@@ -4,8 +4,12 @@
 <meta charset="UTF-8">
 <title>Choose Some Billing Records</title>
 </head>
+{{> _navigation }}
 <body>
 
+	{{#errorMessage}}
+        {{errorMessage}}
+    {{/errorMessage}}
 
 	<form method="post" action="/invoices/create">
 		<input type="text" name="invoiceNumber" required>

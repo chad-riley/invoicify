@@ -4,16 +4,14 @@
 <meta charset="UTF-8">
 <title>Invoices</title>
 </head>
+{{> _navigation }}
 <body>
 
 	<div>Hello, {{ user.username }}</div>
 
 	<h1>Invoices</h1>
-	<thread>
-	</table>
-
 	<form>
-		<h1>Select A Client</h1>
+		<h2>Select A Client</h2>
 		<a href="/invoices/new">New Invoice</a>
 	</form>
 	{{#showTable}}

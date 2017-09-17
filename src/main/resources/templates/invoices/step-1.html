@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>Select A Client</title>
 </head>
+{{> _navigation }}
 <body>
 	<h1>Select a client</h1>
 	<form action="/invoices/new" method="post">
@@ -11,12 +12,12 @@
 			<option value="">Choose One</option> 
 			{{ #companies }}
 			<option value="{{ id }}">
-			{{ name }}
+				{{ name }}
 			</option>
-		{{ /companies }}
-</select>
-<button>Choose some billing records</button>
-<input type="hidden" name="{{ _csrf.parameterName }}" value="{{_csrf.token }}">
-</form>
+			{{ /companies }}
+		</select>
+		<button>Choose some billing records</button>
+		<input type="hidden" name="{{ _csrf.parameterName }}" value="{{_csrf.token }}">
+	</form>
 </body>
 </html>
