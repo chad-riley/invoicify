@@ -6,21 +6,26 @@
 </head>
 {{> _navigation }}
 <body>
+	{{#errorMessage}} 
+		{{errorMessage}} 
+	{{/errorMessage}}
+
 	<h1>Companies</h1>
 
-		<h2>Add Company</h2>
-			<form action="/admin/companies" method="post">
+	<h2>Add Company</h2>
+	<form action="/admin/companies" method="post">
 		<input type="text" name="name" required placeholder="company name">
-		<input type="hidden" name="{{ _csrf.parameterName }}" value="{{ _csrf.token }}">
+		<input type="hidden" name="{{ _csrf.parameterName }}"
+			value="{{ _csrf.token }}">
 		<button>Add Company</button>
 
 	</form>
 	<table>
 		<thread>
-			<tr>
-				<th>Name</th>
-				<th>Number of Invoices</th>
-			</tr>
+		<tr>
+			<th>Name</th>
+			<th>Number of Invoices</th>
+		</tr>
 		</thread>
 		<tbody>
 			{{#companies}}
