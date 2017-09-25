@@ -19,8 +19,8 @@ public class RateBasedBillingRecordController {
 	private BillingRecordRepository recordRepository;
 	private CompanyRepository companyRepository;
 	
-	public RateBasedBillingRecordController(BillingRecordRepository recordRepostitory, CompanyRepository companyRepository) {
-		this.recordRepository = recordRepository;
+	public RateBasedBillingRecordController(BillingRecordRepository record, CompanyRepository companyRepository) {
+		this.recordRepository = record;
 		this.companyRepository = companyRepository;	
 	}
 	

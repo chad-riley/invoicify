@@ -11,24 +11,25 @@
 	
 	<form action="billing-records/flat-fees" method="post">
 		<h2>Make a flat-fee billing record</h2>
-		<input type="number" step=".01" name="amount" required
-			placeholder="amount"> <select name="clientId" required>
+		<input type="number" step=".01" name="amount" required placeholder="amount"> 
+			<select name="clientId" required>
 			<option value="">Choose One...</option> {{#companies}}
 			<option value="{{id}}">{{name}}</option> {{/companies}}
 			<input type="text" name="description" required placeholder="describe it">
-			<input type="number" step=".01" name="quantity"
-			placeholder="quantity">
 			<input type="hidden" name="{{ _csrf.parameterName }}"
 			value="{{ _csrf.token}}">
 			<button>Create Me!</button>
 		</select>
+	</form>
 
+		<form action="billing-records/rate-based" method="post">
 		<h2>Make a rate-based billing record</h2>
-		<input type="number" step=".01" name="amount" required placeholder="amount">
+		<input type="number" step=".01" name="rate" required placeholder="rate">
 		<select name="clientId" required>
 			<option value="">Choose One...</option> {{#companies}}
 			<option value="{{id}}">{{name}}</option> {{/companies}}
 			<input type="text" name="description" required placeholder="describe it">
+			<input type="number" name="quantity" placeholder="quantity">
 			<input type="hidden" name="{{ _csrf.parameterName }}"
 			value="{{ _csrf.token}}">
 			<button>Create Me!</button>
